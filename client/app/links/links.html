@@ -4,12 +4,12 @@
   <li><a href='#/shorten' class='create'>Shorten</a></li>
 </ul>
 </div>
-<div id='container'></div>
 
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <!-- <div class="links" ng-model="data"> -->
-    <div class="link" ng-repeat="link in data.links">
+    <input type="text" placeholder="Seach here" ng-model="searchText">
+    <div class="link" ng-repeat="link in data.links | filter:searchText | orderBy:'-visits'">
       <img src='../../assets/redirect_icon.png'/>
       <div class='info'>
         <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
