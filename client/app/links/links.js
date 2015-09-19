@@ -10,7 +10,6 @@ angular.module('shortly.links', [])
       .then(function (data) {
         $scope.data.links = data;
         console.log("LINKS:", $scope.data.links);
-        $location.path('/links')
       })
       .catch(function (err) {
         console.error('getLinks err: ', err);
