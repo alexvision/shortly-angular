@@ -9,8 +9,9 @@ mongoose.connect('mongodb://localhost/shortly'); // connect to mongo database na
 require('./config/middleware.js')(app, express);
 
 // export our app for testing and flexibility, required by index.js
-
+console.log("Listening on port 8000")
 app.listen(8000);
+
 
 module.exports = app;
 
