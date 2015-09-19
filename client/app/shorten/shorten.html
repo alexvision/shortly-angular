@@ -10,6 +10,7 @@
 <div id='container' ng-controller="ShortenController">
   <form name="shorten" ng-submit="addLink()" novalidate>
         <input class='text' type='url' name='url' ng-model='url'>
+        <p ng-show="shorten.url.$invalid && !shorten.url.$pristine">Not A Valid URL</p>
         <input type='submit' value='Shorten' ng-disable="shorten.$invalid">
     </form>
     <img class='spinner' src='../../assets/spiffygif_46x46.gif'>
