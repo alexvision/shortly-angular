@@ -1,9 +1,7 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, $location, Links) {
   // Your code here
-  console.log("LINKS:", Links);
-  console.log("SCOPE:", $scope);
   $scope.data = {};
   $scope.data.links = [];
 
@@ -11,13 +9,18 @@ angular.module('shortly.links', [])
     Links.getLinks()
       .then(function (data) {
         $scope.data.links = data;
+        console.log("LINKS:", $scope.data.links);
+        $location.path('/links')
       })
       .catch(function (err) {
         console.error('getLinks err: ', err);
       });
   };
 
+  $scope.goToLink = function (url) {
+    $location.absUrl(url);
+  };
+
   $scope.getLinks();
- 
 });
 
