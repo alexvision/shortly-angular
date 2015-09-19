@@ -3,9 +3,10 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ngRoute',
+  'ngMaterial'
 ])
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider, $httpProvider, $mdThemingProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -32,6 +33,10 @@ angular.module('shortly', [
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('indigo')
+      .accentPalette('red');
 })
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor

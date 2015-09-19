@@ -1,14 +1,19 @@
 <div class='navigation'>
-<ul>
-  <li><a href='#/links' class='index'>All Links</a></li>
-  <li><a href='#/shorten' class='create'>Shorten</a></li>
-</ul>
+    <ul>
+      <li><a href='#/links' class='index'>All Links</a></li>
+      <li><a href='#/shorten' class='create'>Shorten</a></li>
+    </ul>
 </div>
 
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <!-- <div class="links" ng-model="data"> -->
-    <input type="text" placeholder="Seach here" ng-model="searchText">
+  <md-content layout-padding>
+    <md-input-container flex>
+      <input type="text" ng-model="searchText">
+      <label>Search here</label>
+    </md-input-container>
+  </md-content>  
     <div class="link" ng-repeat="link in data.links | filter:searchText | orderBy:'-visits'">
       <img src='../../assets/redirect_icon.png'/>
       <div class='info'>

@@ -7,6 +7,7 @@ angular.module('shortly.shorten', [])
     Links.addLink($scope.url)
       .then(function (link) {
         $scope.link.push(link);
+        $location.path('/')
       })
       .catch(function (err) {
         console.log(err);

@@ -1,11 +1,22 @@
 <div id='signin'>
-  <h1>signin</h1>
+  <h1 class="md-title">Sign In</h1>
+
   <form name="signinForm" novalidate>
-    <input name="un" type='text' ng-model='user.username' ng-minlength="3" ng-maxlength="1000000">
-    <input name="pw" type="password" ng-model='user.password' ng-minlength="3" ng-maxlength="1000000">
-    <button type='submit' ng-disable="signinForm.$invalid">signin</button>
-    <p ng-show="signinForm.un.$invalid && !signinForm.un.$pristine">Not A Valid Username</p>
-    <p ng-show="signinForm.pw.$invalid && !signinForm.pw.$pristine">Not A Valid Password</p>
+  	 <md-content layout-padding>
+  	 	<md-input-container flex>
+   		  <input name="un" type='text' ng-model='user.username' ng-minlength="3" ng-maxlength="100">
+   		  <label>Username</label>
+   		</md-input-container>
+   		<md-input-container flex>
+    	  <input name="pw" type="password" ng-model='user.password' ng-minlength="3" ng-maxlength="100">
+    	  <label>Password</label>
+    	</md-input-container>
+
+    <md-button class="md-primary md-raised" type='submit' ng-disable="signinForm.$invalid">signin</button>
+
+   <!--  <p ng-show="signinForm.un.$invalid && !signinForm.un.$pristine">Not A Valid Username</p>
+    <p ng-show="signinForm.pw.$invalid && !signinForm.pw.$pristine">Not A Valid Password</p> -->
+	</md-content>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>
